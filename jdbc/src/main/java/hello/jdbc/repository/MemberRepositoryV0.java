@@ -22,11 +22,11 @@ public class MemberRepositoryV0 {
         PreparedStatement pstmt = null;
 
         try {
-            con = getConnection();
-            pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, member.getMemberId());
+            con = getConnection(); //커넥션 획득
+            pstmt = con.prepareStatement(sql); //SQL 전달
+            pstmt.setString(1, member.getMemberId());  //바라미터 바인딩
             pstmt.setInt(2, member.getMoney());
-            pstmt.executeUpdate();
+            pstmt.executeUpdate(); 
             return member;
         } catch (SQLException e) {
             log.info("db error", e);

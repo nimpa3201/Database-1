@@ -28,7 +28,7 @@ class MemberRepositoryV1Test {
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setJdbcUrl(URL);
         dataSource.setUsername(USERNAME);
-        dataSource.setPoolName(PASSWORD);
+        dataSource.setPassword(PASSWORD);
         repository =new MemberRepositoryV1(dataSource);
 
 

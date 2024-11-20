@@ -24,7 +24,7 @@ public class MemberRepositoryV0 {
         try {
             con = getConnection(); //커넥션 획득
             pstmt = con.prepareStatement(sql); //SQL 전달
-            pstmt.setString(1, member.getMemberId());  //바라미터 바인딩
+            pstmt.setString(1, member.getMemberId());  //파라미터 바인딩
             pstmt.setInt(2, member.getMoney());
             pstmt.executeUpdate(); 
             return member;

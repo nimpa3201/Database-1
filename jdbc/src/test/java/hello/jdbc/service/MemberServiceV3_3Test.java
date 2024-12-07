@@ -26,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 
 /**
- * 트랜잭션 - 트랜잭션 템플릿
+ * 트랜잭션 - @Transactional AOP
  *
  */
 
@@ -71,9 +71,14 @@ class MemberServiceV3_3Test {
 
     @Test
     void AopCheck() {
+        // memberService와 memberRepository의 실제 클래스 정보를 로깅
         log.info("memberService class={}", memberService.getClass());
         log.info("memberRepository class={}", memberRepository.getClass());
+
+        // memberService가 AOP 프록시인지 확인
         Assertions.assertThat(AopUtils.isAopProxy(memberService)).isTrue();
+
+        // memberRepository가 AOP 프록시가 아닌지 확인
         Assertions.assertThat(AopUtils.isAopProxy(memberRepository)).isFalse();
     }
 
